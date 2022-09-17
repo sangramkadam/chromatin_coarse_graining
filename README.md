@@ -7,7 +7,7 @@
 [How to run](#how-to-run)  
 
 ## Overview
-
+The repository consists of scripts and codes used to study the scale dependent properties of chromatin. We use open source [LAMMPS](https://www.lammps.org/) package to simulate chromatin polymer at nucleosome level. Then the custom c codes are used to compute coarse-grained properties of the chromatin polymer from an ensemble of configurations. 
 ## System requirements
 - LAMMPS is an open source software. For details [click here](https://docs.lammps.org/Install.html).
 - The analysis codes were tested on a Linux system (Ubuntu).
