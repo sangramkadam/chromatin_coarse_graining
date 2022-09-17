@@ -1,5 +1,12 @@
 # Predicting scale-dependent chromatin polymer properties from systematic coarse-graining
 
+##### Table of Contents  
+[Headers](#headers)  
+[Emphasis](#emphasis)  
+...snip...    
+<a name="headers"/>
+## Headers
+
 ## System requirements
 - LAMMPS is an open source software. For details [click here](https://docs.lammps.org/Install.html).
 - The analysis codes were tested on a Linux system (Ubuntu).
