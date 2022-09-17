@@ -21,7 +21,7 @@ The repository consists of scripts and codes used to study the scale dependent p
 - cg_analysis.c - Uses the center of mass file obtained from com_pos.c to measure coarse-graining properties
 
 ## How to run
-- Refer [LAMMPS documentation](https://docs.lammps.org/Install.html) for installation. Run LAMMPS using command 
+- Refer [LAMMPS documentation](https://docs.lammps.org/Install.html) for installation. Run LAMMPS using command (make sure that the configuration file conf.dat is present in the same directory)
 ```
 ./lmp_serial <run.in
 ```
