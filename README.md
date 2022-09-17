@@ -1,25 +1,26 @@
 # Predicting scale-dependent chromatin polymer properties from systematic coarse-graining
 
-##### Table of Contents  
-[Headers](#headers)  
-[Emphasis](#emphasis)  
-...snip...    
-<a name="headers"/>
-## Headers
+## Table of Contents  
+[Overview](#overview)  
+[System requirements](#system-requirements)  
+[File description](#file-description)  
+[How to run](#how-to-run)  
+
+## Overview
 
 ## System requirements
 - LAMMPS is an open source software. For details [click here](https://docs.lammps.org/Install.html).
 - The analysis codes were tested on a Linux system (Ubuntu).
 - The gcc compiler with math library was used to compile the analysis codes.
 
-## File description:
+## File description
 - run.in        - Script file for LAMMPS 
 - conf.dat      - Initial input file with polymer configuration and information about extra chromatin contacts
 - pos.xyz       - Demo output position data file from simulation
 - com_pos.c     - Analysis code to find center of mass positions of CG beads 
 - cg_analysis.c - Uses the center of mass file obtained from com_pos.c to measure coarse-graining properties
 
-## How to run:
+## How to run
 - Refer [LAMMPS documentation](https://docs.lammps.org/Install.html) for installation. Run LAMMPS using command 
 ```
 ./lmp_serial <run.in
