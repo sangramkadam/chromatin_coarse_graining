@@ -1,4 +1,4 @@
-# chromatin_coarse_graining
+# Predicting scale-dependent chromatin polymer properties from systematic coarse-graining
 
 ## File description:
 - run.in        - Script file for LAMMPS 
