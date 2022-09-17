@@ -16,18 +16,21 @@
 '''
 
 ./lmp_serial <run.in
+
 '''  
 - Compile and run com_pos.c using 
 '''
 
 gcc com_pos.c -lm
 ./a.out
+
 '''
 - Compile and run cg_analysis.c using 
 '''
 
 gcc cg_analysis.c -lm
 ./a.out
+
 '''
 
 
