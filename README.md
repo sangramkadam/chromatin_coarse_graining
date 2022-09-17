@@ -13,25 +13,19 @@
 
 ## How to run:
 - Refer [LAMMPS documentation](https://docs.lammps.org/Install.html) for installation. Run LAMMPS using command 
-'''
-
+```
 ./lmp_serial <run.in
-
-'''  
+```
 - Compile and run com_pos.c using 
-'''
-
+```
 gcc com_pos.c -lm
 ./a.out
-
-'''
+```
 - Compile and run cg_analysis.c using 
-'''
-
+```
 gcc cg_analysis.c -lm
 ./a.out
-
-'''
+```
 
 
 Expected output: The simulation generates single position trajectory file. The analysis codes compute average values and distributions of radius of gyration, bond length, and bond angle.
