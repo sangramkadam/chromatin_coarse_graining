@@ -1,0 +1,111 @@
+###############################################
+# LAMMPS script for a polymer
+###############################################
+
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+variable t equal step
+units lj                 # use lennard-jones (i.e. dimensionless) units
+atom_style angle         # atoms with bonds and angles
+boundary s s s          # shrink wrap boundary
+
+###
+# Pair interactions require lists of neighbours to be calculated
+###
+neighbor 2.0 bin
+neigh_modify every 5 delay 20 check yes
+atom_modify sort 10000 2.0
+
+### 
+# READ "start" data file 
+###
+read_data	conf.dat
+
+###
+# Define groups 
+###
+group all type 1  #(atom type 1 is group 'all')
+
+############################################################################
+#### Set up a compute for R_g
+compute myRG2compute all gyration
+#### and write it to a file
+variable RG2 equal c_myRG2compute
+fix myRG2file all print 10000 "$t ${RG2}" file rg.dat screen no
+############################################################################
+
+
+
+## angles
+#angle_style  cosine
+#angle_coeff   1  20.0
+
+## Between bonded atoms
+bond_style   harmonic 
+bond_coeff   *   0.0   1.0 
+special_bonds lj 0.0 1.0 1.0
+# For style harmonic, specify:
+#   * bond type
+#   * K (energy/distance^2) 
+#   * R0 (distance)
+
+
+# Set up fixes
+###
+
+fix 1 all nve                             # NVE integrator
+fix 2 all langevin	1.0 1.0 1.0 3131000
+
+
+##### Output thermodynamic info  (temperature, energy, pressure, etc.) #####
+thermo 10000
+thermo_style   custom   step  temp  epair  ebond ke pe etotal
+
+###############################################################################
+# set timestep of integrator
+###
+timestep 0.005 
+
+
+## Between non-bonded atoms
+pair_style      lj/cut 1.12246152962189
+pair_modify shift yes        # option to ensure energy is calculated corectly
+#  pair_coeff for LJ, specify 4:
+#    * atom type interacting with
+#    * atom type
+#    * energy
+#    * mean diameter of the two atom types
+#    * cutoff
+pair_coeff      1 1 1.0 1.0 1.12246152962189
+
+###
+# Short run putting far away springs gradually
+###
+# Introduce Chromatin contacts in step by step manner
+# Contacts between beads i and j classified based on distance along the contour |i-j|
+# First introduce local nearby contacts, equilibrate, and
+# then introduce far away contacts.
+bond_coeff   1   5.0   1.0 
+run 100000
+bond_coeff   2   1.0   1.0 
+run 100000
+bond_coeff   3   1.0   1.0 
+run 100000
+bond_coeff   4   0.1   1.0 
+run 100000
+bond_coeff   5   0.1   1.0 
+run 100000
+
+bond_coeff   *   5.0   1.0 
+###
+# now do a longer run
+###
+ 
+run 3000000
+dump         5 all xyz 50000 positions.xyz
+run 3000000
+
+#### write a final restart file
+write_restart pos.restart
