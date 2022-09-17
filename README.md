@@ -1,6 +1,7 @@
 # chromatin_coarse_graining
 
 File description:
+
 run.in        - Script file for LAMMPS 
 conf.dat      - Initial input file with polymer configuration and information about extra chromatin contacts
 pos.xyz       - Sample output position data file
