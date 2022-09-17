@@ -2,7 +2,8 @@
 
 ## System requirements
 - LAMMPS is an open source software. For details [click here](https://docs.lammps.org/Install.html).
-- The analysis codes were compiled using gcc compiler on a Linux system (Ubuntu) along with math library.
+- The analysis codes were tested on a Linux system (Ubuntu).
+- The gcc compiler with math library was used to compile the analysis codes.
 
 ## File description:
 - run.in        - Script file for LAMMPS 
