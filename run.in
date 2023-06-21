@@ -93,9 +93,9 @@ bond_coeff   2   1.0   1.0
 run 100000
 bond_coeff   3   1.0   1.0 
 run 100000
-bond_coeff   4   0.1   1.0 
+bond_coeff   4   1.0   1.0 
 run 100000
-bond_coeff   5   0.1   1.0 
+bond_coeff   5   1.0   1.0 
 run 100000
 
 bond_coeff   *   5.0   1.0 
