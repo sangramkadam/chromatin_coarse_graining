@@ -1,5 +1,9 @@
 # Predicting scale-dependent chromatin polymer properties from systematic coarse-graining
 
+
+[![DOI](https://zenodo.org/badge/537789637.svg)](https://zenodo.org/badge/latestdoi/537789637)
+
+
 ## Table of Contents  
 [Overview](#overview)  
 [System requirements](#system-requirements)  
